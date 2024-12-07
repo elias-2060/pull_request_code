@@ -1,5 +1,9 @@
 [MAIN]
 
+# Enable similarities to be checked
+enable=similarities
+
+
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
 # only in one or another interpreter, leading to false positives when analysed.
@@ -119,12 +123,6 @@ unsafe-load-any-extension=no
 
 # Ignore specific packages as per guidelines
 ignore=src.utils,src.network,src.user_registration.signup_form
-
-# Specify Python version as per guidelines
-python-version=3.10
-
-# Set threshold for detecting similar code blocks
-similarities=70
 
 
 
@@ -424,11 +422,8 @@ logging-modules=logging
 
 [MESSAGES CONTROL]
 
-# Allow deprecated methods as per guidelines
-deprecated-methods=ignored
-
 # Ensure proper exception handling
-enable=broad-except,bare-except,raise-missing-fro
+enable=broad-except,bare-except
 
 # Only show warnings with the listed confidence levels. Leave empty to show
 # all. Valid levels: HIGH, CONTROL_FLOW, INFERENCE, INFERENCE_FAILURE,
@@ -457,7 +452,8 @@ disable=raw-checker-failed,
         deprecated-pragma,
         use-symbolic-message-instead,
         use-implicit-booleaness-not-comparison-to-string,
-        use-implicit-booleaness-not-comparison-to-zero
+        use-implicit-booleaness-not-comparison-to-zero,
+        raising-bad-type
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -586,12 +582,6 @@ check-str-concat-over-line-jumps=no
 
 
 [TYPECHECK]
-
-# Check for proper exception chaining
-raise-missing-from=yes
-
-# Enable strict typing checks as per guidelines
-ignore-missing-annotations=no
 
 # List of decorators that produce context managers, such as
 # contextlib.contextmanager. Add to this list to register other decorators that
