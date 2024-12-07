@@ -1,0 +1,20 @@
+Mypy Type Check Coverage Summary
+================================
+
+Script: index
+
++-----------------------------------------------------+-------------------+---------+
+| Module                                              | Imprecision       | Lines   |
++-----------------------------------------------------+-------------------+---------+
+| pull_request_code.src                               |   0.00% imprecise |   0 LOC |
+| pull_request_code.src.special_facilities            |  18.18% imprecise |  77 LOC |
+| pull_request_code.src.user                          |  22.58% imprecise |  93 LOC |
+| pull_request_code.src.user_registration             |   0.00% imprecise |   0 LOC |
+| pull_request_code.src.user_registration.manager     |  46.81% imprecise |  47 LOC |
+| pull_request_code.src.user_registration.signup_form |  42.86% imprecise |  21 LOC |
+| pull_request_code.src.utils                         |   0.00% imprecise |   0 LOC |
+| pull_request_code.src.utils.file                    |  26.92% imprecise |  26 LOC |
+| pull_request_code.src.utils.math                    |  35.90% imprecise |  39 LOC |
++-----------------------------------------------------+-------------------+---------+
+| Total                                               |  28.71% imprecise | 303 LOC |
++-----------------------------------------------------+-------------------+---------+
