@@ -1,0 +1,52 @@
+Programming Errors:
+
+    Undefined Attributes and Methods:
+
+        In Facility:
+            - the self.type is accessed in the __init__ method before being initialized for the assert. This will raise an AttributeError.
+            - The get_type() method lacks the self parameter, making it unusable.
+            - get_special_facilities in special_facilities.py assumes user.facilities[0] exists, which could cause an IndexError if the list is empty.
+            - In get_facility_name, EnumSpecialFacilties.GROOTLETTERTYPE is used, but the correct enum name appears to be GROOT_LETTERTYPE.
+
+        Invalid User Initialization:
+            - circular import in user.py because we import usermanager and but this is already imported in special_facilities.py
+              wich we also imported.
+
+        Missing Implementations:
+            - SignupForm lacks implementations for its methods, such as fill(). This leaves key functionality unimplemented.
+
+Security Problems:
+    Input Validation and Sanitization:
+        - There’s no validation or sanitization of user inputs in SignupForm. This can lead to injection attacks or invalid data being processed.
+
+    Authorization Checks:
+        - There's no check to ensure only admins can access or modify facilities. get_special_facilities and Facility management functionality are not restricted to admin users.
+
+    Improper Use of Assertions:
+        - Assertions (e.g., in User and Facility) are used for critical runtime checks. These should be replaced with proper error handling as assertions can be disabled in production.
+
+Missing or Incorrect Features:
+    Facilities Database Integration:
+        - Facilities are defined as an Enum, but the requirements specify that they should be stored in a database for easy addition and removal. A database model is missing.
+
+    Admin-Only Operations:
+        - Admin-only constraints are not enforced programmatically.
+
+    Facilities Association with Users:
+        - The Student class associates facilities with students, but methods to add or remove facilities dynamically are absent.
+
+    Facility Retrieval:
+        - get_special_facilities should return all facilities for a user, but it only retrieves the first facility in the list.
+
+Software Engineering Issues:
+    Cohesion and Clarity:
+        - The Facility class is underdeveloped. For example, __str__() returns None instead of a meaningful string representation.
+
+    Use of Hardcoded Logic:
+        - get_facility_name uses a match statement wich is hardcoded logic. This violates the requirement to make adding/removing facilities easier via a database.
+
+    OOP Best Practices:
+        - The Student and Admin constructors use the base User constructor but introduce unnecessary complexity by requiring another User object as input.
+
+    Unused or Unnecessary Imports:
+        - math is imported but unused in special_facilities.py.
